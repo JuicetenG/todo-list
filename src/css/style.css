@@ -1,3 +1,16 @@
 #testDiv {
-  color: blue;
+  color: purple;
+}
+
+#headerDiv {
+  border: solid 1px black;
+}
+
+#leftColumn {
+  border: solid 1px black;
+}
+
+
+#rightColumn {
+  border: solid 1px black;
 }
