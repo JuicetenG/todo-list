@@ -1,4 +1,6 @@
-export default function displayTodos(todos) {
+export {displayTodos, displayForm};
+
+function displayTodos(todos) {
   const todoDisplay = document.querySelector('#rightColumn');
 
   for (const todo of todos) {
@@ -7,4 +9,8 @@ export default function displayTodos(todos) {
     newTodo.classList.add('todo');
     todoDisplay.appendChild(newTodo);
   }
+}
+
+function displayForm() {
+
 }
