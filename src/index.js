@@ -2,7 +2,6 @@ import './css/style.css';
 import './css/reset.css';
 import * as dom from './dom.js';
 import Todo from './todo.js';
-import events from './events.js';
 import testWebpack from './todo.js';
 
 export { testArray };
@@ -15,5 +14,4 @@ testArray[0] = todo1;
 let todo2 = new Todo('sell furniture', 'it\'s gotta go', 'high', 'end of month');
 testArray[1] = todo2;
 
-events();
 dom.displayTodos(testArray);

@@ -1,4 +1,4 @@
-export {displayTodos, displayForm};
+export { displayTodos } ;
 
 function displayTodos(todos) {
   const todoDisplay = document.querySelector('#rightColumn');
@@ -11,6 +11,3 @@ function displayTodos(todos) {
   }
 }
 
-function displayForm() {
-
-}
