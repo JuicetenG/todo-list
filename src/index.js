@@ -1,17 +1,26 @@
 import './css/style.css';
 import './css/reset.css';
-import * as dom from './dom.js';
+import dom from './dom.js';
 import Todo from './todo.js';
-import testWebpack from './todo.js';
+import Project from './project.js';
 
-export { testArray };
-//testWebpack();
+let defaultArray = new Project("Default");
+let justinsProject = new Project("Justin");
 
-let testArray = [];
 let todo1 = new Todo('clean room', 'need to clean room', 'Low', 'september 5th');
-testArray[0] = todo1;
-
 let todo2 = new Todo('sell furniture', 'it\'s gotta go', 'high', 'end of month');
-testArray[1] = todo2;
+defaultArray.addTodo(todo1);
+defaultArray.addTodo(todo2);
 
-dom.displayTodos(testArray);
+let todo3 = new Todo('3', '33', '333', '3333');
+let todo4 = new Todo('4', '44', '444', '4444');
+let todo5 = new Todo('5', '55', '555', '5555');
+justinsProject.addTodo(todo3);
+defaultArray.addTodo(todo3);
+justinsProject.addTodo(todo4);
+defaultArray.addTodo(todo4);
+justinsProject.addTodo(todo5);
+defaultArray.addTodo(todo5);
+
+console.log(defaultArray.name);
+dom.displayTodos(justinsProject.todos);
