@@ -1,10 +1,14 @@
-import actions from './action.js';
+import actions from './actions.js';
 
 const dom  = (() => {
-  
-  function displayTodos(current) {
+ 
+  function displayTodos() {
     const todoDisplay = document.querySelector('#rightColumn');
-    for (const todo of current) {
+    todoDisplay.textContent = '';
+    let current = actions.getCurrentProject();
+    let currentTodos = current.todos;
+    console.log(currentTodos);
+    for (const todo of currentTodos) {
       let newTodo = document.createElement('div');
       newTodo.textContent = todo.display();
       newTodo.classList.add('todo');
@@ -15,11 +19,11 @@ const dom  = (() => {
   function listen() {
     const addTaskBtn = document.querySelector('#addTodo');
     addTaskBtn.addEventListener('click', () => {
-
+      
     });
   }
   
-  return { displayTodos, listen};
+  return { displayTodos, listen };
 })();
 
 export default dom;
