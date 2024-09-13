@@ -7,6 +7,19 @@ import Project from './project.js';
 
 
 actions.initialize();
+console.log(actions.getCurrentProject());
+dom.displayTodos();
+actions.createProject("Justin");
+console.log(actions.getCurrentProject());
+actions.addTodo('t', 'e', 's', 't');
+console.log(actions.getCurrentProject());
+dom.displayTodos();
+console.log(actions.getProjects());
+actions.changeProject(0);
+console.log(actions.getCurrentProject());
+dom.displayTodos();
+actions.changeProject(1);
+console.log(actions.getCurrentProject());
 dom.displayTodos();
 
 

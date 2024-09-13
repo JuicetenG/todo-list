@@ -7,7 +7,6 @@ const dom  = (() => {
     todoDisplay.textContent = '';
     let current = actions.getCurrentProject();
     let currentTodos = current.todos;
-    console.log(currentTodos);
     for (const todo of currentTodos) {
       let newTodo = document.createElement('div');
       newTodo.textContent = todo.display();
@@ -15,6 +14,8 @@ const dom  = (() => {
       todoDisplay.appendChild(newTodo);
     }
   }
+
+  
   
   function listen() {
     const addTaskBtn = document.querySelector('#addTodo');

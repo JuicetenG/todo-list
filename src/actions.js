@@ -19,10 +19,9 @@ const actions = (() => {
     let newProject = new Project(name);
     currentProject = newProject;
     projects.push(newProject);
-    dom.displayTodos(newProject.todos);
   }
 
-  function addTodoTest() {
+  function addTodo() {
     let newTodo =  new Todo('title', 'desc', 'priority', 'date');
     currentProject.addTodo(newTodo);
   }
@@ -31,7 +30,15 @@ const actions = (() => {
     return currentProject;
   }
 
-  return { initialize, createProject, addTodoTest, getCurrentProject };
+  function changeProject(index) {
+    currentProject = projects[index];
+  }
+
+  function getProjects() {
+    return projects;
+  }
+
+  return { initialize, createProject, addTodo, getCurrentProject, getProjects, changeProject };
 })();
 
 export default actions;
