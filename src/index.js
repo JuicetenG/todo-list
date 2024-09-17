@@ -5,6 +5,7 @@ import actions from './actions.js';
 import Todo from './todo.js';
 import Project from './project.js';
 
+dom.listen();
 
 actions.initialize();
 console.log(actions.getCurrentProject());
@@ -22,6 +23,8 @@ actions.changeProject(1);
 console.log(actions.getCurrentProject());
 dom.displayTodos();
 
+
+console.log(actions.getCurrentProject());
 
 
 

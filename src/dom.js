@@ -1,7 +1,8 @@
 import actions from './actions.js';
 
 const dom  = (() => {
- 
+  const addTaskBtn = document.querySelector("#addTodo");
+
   function displayTodos() {
     const todoDisplay = document.querySelector('#rightColumn');
     todoDisplay.textContent = '';
@@ -15,12 +16,13 @@ const dom  = (() => {
     }
   }
 
-  
-  
+
+
   function listen() {
-    const addTaskBtn = document.querySelector('#addTodo');
     addTaskBtn.addEventListener('click', () => {
-      
+      actions.addTodo();
+      console.log(actions.getCurrentProject());
+      displayTodos();
     });
   }
   

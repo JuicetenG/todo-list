@@ -1,6 +1,5 @@
 import Todo from './todo.js';
 import Project from './project.js';
-import dom from './dom.js';
 
 const actions = (() => {
   const defaultProject = new Project('Default');
