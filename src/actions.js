@@ -1,5 +1,6 @@
 import Todo from './todo.js';
 import Project from './project.js';
+import dom from './dom.js';
 
 const actions = (() => {
   const defaultProject = new Project('Default');
@@ -18,6 +19,7 @@ const actions = (() => {
     let newProject = new Project(name);
     currentProject = newProject;
     projects.push(newProject);
+    dom.displayProjects();
   }
 
   function addTodo() {
@@ -29,15 +31,22 @@ const actions = (() => {
     return currentProject;
   }
 
+  function getCurrentProjectName() {
+    return currentProject.name;
+  }
+   
+   
   function changeProject(index) {
     currentProject = projects[index];
+    dom.displayTodos();
   }
 
   function getProjects() {
     return projects;
   }
 
-  return { initialize, createProject, addTodo, getCurrentProject, getProjects, changeProject };
+  return { initialize, createProject, addTodo, getCurrentProject, getProjects, changeProject, 
+          getCurrentProjectName };
 })();
 
 export default actions;

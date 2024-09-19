@@ -14,6 +14,8 @@ body {
 #leftColumn {
   border: solid 2px purple;
   grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
 }
 
 #rightColumn {
@@ -27,6 +29,14 @@ body {
 .todo {
   height: 50px;
   width: 95%;
+  border: 2px solid slategray;
+  margin: 5px;
+  padding: 5px;
+}
+
+.project {
+  height: 50px;
+  width: 90%;
   border: 2px solid slategray;
   margin: 5px;
   padding: 5px;
