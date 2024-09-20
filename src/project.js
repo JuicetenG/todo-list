@@ -4,15 +4,20 @@ export default class Project {
     this.todos = [];
   }
 
-  addTodo(todo) {
+  addTodo(todo) { 
     this.todos.push(todo);
   }
 
-  removeTodo() {
+  removeTodo(index) {
     this.todos.splice(index, 1);
   }
 
   getProject() {
     return this;
   }
+
+  getTodos() {
+    return this.todos;
+  }
 }
+

@@ -13,6 +13,7 @@ const actions = (() => {
     let todo2 = new Todo('sell furniture', 'it\'s gotta go', 'high', 'end of month');
     defaultProject.addTodo(todo1);
     defaultProject.addTodo(todo2);
+    todoIDs();
   }
 
   function createProject(name) {
@@ -20,11 +21,37 @@ const actions = (() => {
     currentProject = newProject;
     projects.push(newProject);
     dom.displayProjects();
+    projectIDs();
+  }
+
+  function projectIDs() {
+    let id = 0;
+    for(const project of projects) {
+      project.id = id;
+      id++;
+    }
+  }
+
+  function todoIDs() {
+    let id = 0
+    let todos = currentProject.getTodos();
+    console.log(todos);
+    for (const todo of todos) {
+      todo.id = id;
+      id++;
+    } 
   }
 
   function addTodo() {
     let newTodo =  new Todo('title', 'desc', 'priority', 'date');
     currentProject.addTodo(newTodo);
+    todoIDs();
+  }
+
+  function removeTodo(index) {
+    currentProject.removeTodo(index);
+    dom.displayTodos();
+    todoIDs();
   }
 
   function getCurrentProject() {
@@ -35,9 +62,10 @@ const actions = (() => {
     return currentProject.name;
   }
    
-   
   function changeProject(index) {
     currentProject = projects[index];
+    console.log(currentProject.name);
+    console.log(currentProject.getTodos());
     dom.displayTodos();
   }
 
@@ -45,7 +73,7 @@ const actions = (() => {
     return projects;
   }
 
-  return { initialize, createProject, addTodo, getCurrentProject, getProjects, changeProject, 
+  return { initialize, createProject, addTodo, removeTodo, getCurrentProject, getProjects, changeProject, 
           getCurrentProjectName };
 })();
 

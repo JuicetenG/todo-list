@@ -33,7 +33,6 @@ const dom  = (() => {
   function listen() {
     addTaskBtn.addEventListener('click', () => {
       actions.addTodo();
-      console.log(actions.getCurrentProject());
       displayTodos();
     });
 
