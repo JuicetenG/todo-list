@@ -6,13 +6,8 @@ import Todo from './todo.js';
 import Project from './project.js';
 
 dom.listen();
-actions.initialize();
+actions.createProject('default');
 dom.displayTodos();
-actions.createProject("Justin");
-dom.displayTodos();
-actions.createProject("Justin2");
-actions.changeProject(0);
-
 
 
 

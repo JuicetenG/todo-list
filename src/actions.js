@@ -3,25 +3,16 @@ import Project from './project.js';
 import dom from './dom.js';
 
 const actions = (() => {
-  const defaultProject = new Project('Default');
-  let currentProject = defaultProject;
   const projects = [];
-  projects.push(defaultProject);
-
-  function initialize() {
-    let todo1 = new Todo('clean room', 'need to clean room', 'Low', 'september 5th');
-    let todo2 = new Todo('sell furniture', 'it\'s gotta go', 'high', 'end of month');
-    defaultProject.addTodo(todo1);
-    defaultProject.addTodo(todo2);
-    todoIDs();
-  }
+  let currentProject;
 
   function createProject(name) {
     let newProject = new Project(name);
-    currentProject = newProject;
     projects.push(newProject);
     dom.displayProjects();
     projectIDs();
+    currentProject = projects[newProject.id];
+    console.log(getProjects());
   }
 
   function projectIDs() {
@@ -40,11 +31,13 @@ const actions = (() => {
       todo.id = id;
       id++;
     } 
+    console.log(currentProject.getTodos().length);  
   }
 
   function addTodo() {
     let newTodo =  new Todo('title', 'desc', 'priority', 'date');
     currentProject.addTodo(newTodo);
+    console.log(currentProject.getTodos());
     todoIDs();
   }
 
@@ -73,7 +66,7 @@ const actions = (() => {
     return projects;
   }
 
-  return { initialize, createProject, addTodo, removeTodo, getCurrentProject, getProjects, changeProject, 
+  return { createProject, addTodo, removeTodo, getCurrentProject, getProjects, changeProject, 
           getCurrentProjectName };
 })();
 
