@@ -2,8 +2,7 @@ import actions from './actions.js';
 
 const dom  = (() => {
   const addTaskBtn = document.querySelector("#addTodo");
-  const project0 = document.querySelector('#project0');
-  const project1 = document.querySelector('#project1');
+  let projectButtons;
 
   const todoForm = document.querySelector('#todoForm');
   const todoModal = document.querySelector('#todoModal');
@@ -33,11 +32,14 @@ const dom  = (() => {
     projectsDisplay.textContent = '';
     let projects = actions.getProjects();
     for(const project of projects) {
-      let newProject = document.createElement('div');
+      let newProject = document.createElement('button');
       newProject.textContent = project.name;
       newProject.classList.add('project');
+      newProject.value = project.id;
       projectsDisplay.appendChild(newProject);
     }
+    projectButtons = document.querySelectorAll('.project');
+    projectButtons.forEach(project => console.log(project.value));
   }
 
   function listen() {
@@ -60,14 +62,9 @@ const dom  = (() => {
       todoModal.close();
     });
 
-    project0.addEventListener('click', () => {
-      actions.changeProject(0);
-    });
-
-    
-    project1.addEventListener('click', () => {
-      actions.changeProject(1);
-    });
+    projectButtons.forEach(button => button.addEventListener('click', () => {
+      actions.changeProject(button.value);
+    }))
   }
   
   return { displayTodos, displayProjects, listen };

@@ -9,10 +9,9 @@ const actions = (() => {
   function createProject(name) {
     let newProject = new Project(name);
     projects.push(newProject);
-    dom.displayProjects();
     projectIDs();
+    dom.displayProjects();
     currentProject = projects[newProject.id];
-    console.log(getProjects());
   }
 
   function projectIDs() {
@@ -26,18 +25,15 @@ const actions = (() => {
   function todoIDs() {
     let id = 0
     let todos = currentProject.getTodos();
-    console.log(todos);
     for (const todo of todos) {
       todo.id = id;
       id++;
     } 
-    console.log(currentProject.getTodos().length);  
   }
 
   function addTodo(title, description, date, priority) {
     let newTodo =  new Todo(title, description, date, priority);
     currentProject.addTodo(newTodo);
-    console.log(currentProject.getTodos());
     todoIDs();
   }
 
@@ -57,8 +53,6 @@ const actions = (() => {
    
   function changeProject(index) {
     currentProject = projects[index];
-    console.log(currentProject.name);
-    console.log(currentProject.getTodos());
     dom.displayTodos();
   }
 

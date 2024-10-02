@@ -5,10 +5,13 @@ import actions from './actions.js';
 import Todo from './todo.js';
 import Project from './project.js';
 
-dom.listen();
 actions.createProject('default');
+actions.addTodo('walk', 'go for a walk', 'date', 'high');
 dom.displayTodos();
+actions.createProject('Justin');
+actions.createProject('three');
 
+dom.listen();
 
 
 
