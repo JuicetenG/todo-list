@@ -5,6 +5,16 @@ const dom  = (() => {
   const project0 = document.querySelector('#project0');
   const project1 = document.querySelector('#project1');
 
+  const todoForm = document.querySelector('#todoForm');
+  const todoModal = document.querySelector('#todoModal');
+  const todoSubmit = document.querySelector('#todoSubmitButton');
+  const todoClose = document.querySelector('#todoCloseButton');
+
+  let todoTitle = document.querySelector('#todoTitle');
+  let todoDescription = document.querySelector('#todoDesc');
+  let todoDate = document.querySelector('#todoDate');
+  let todoPriority = document.querySelector('#todoPriority');
+
   function displayTodos() {
     const todoDisplay = document.querySelector('#rightColumn');
     todoDisplay.textContent = '';
@@ -32,8 +42,22 @@ const dom  = (() => {
 
   function listen() {
     addTaskBtn.addEventListener('click', () => {
-      actions.addTodo();
       displayTodos();
+      todoModal.showModal();
+    });
+
+    todoSubmit.addEventListener('click', () => {
+      if(todoForm.checkValidity() === true){
+        actions.addTodo(todoTitle.value, todoDescription.value, 
+          todoDate.value, todoPriority.value);
+        todoModal.close();
+        todoForm.reset();
+        displayTodos();
+      } else return;
+    });
+
+    todoClose.addEventListener('click', () => {
+      todoModal.close();
     });
 
     project0.addEventListener('click', () => {

@@ -34,8 +34,8 @@ const actions = (() => {
     console.log(currentProject.getTodos().length);  
   }
 
-  function addTodo() {
-    let newTodo =  new Todo('title', 'desc', 'priority', 'date');
+  function addTodo(title, description, date, priority) {
+    let newTodo =  new Todo(title, description, date, priority);
     currentProject.addTodo(newTodo);
     console.log(currentProject.getTodos());
     todoIDs();

@@ -8,14 +8,47 @@
     <link rel="stylesheet" href="./css/reset.css"> -->
   </head>
   <body>
-    <div id="headerDiv">
-      <button id="addProject">Add Project</button>
-      <button id="addTodo">Add Task</button>
-      <button id="project0">0</button>
-      <button id="project1">1</button>
+    <div id="bodyWrapper">
+      <dialog id="todoModal">
+        <div class="todo-container">
+          <h2 class="todo-form-header">Enter To-Do Information:</h2>
+          <form action="" method="post" id="todoForm">
+            <div class="form-item">
+              <label for="todoTitle">Title:</label>
+              <input type="text" id="todoTitle" name="book-title" required>
+            </div>
+            <div></div>
+            <div class="form-item">
+              <label for="todoDesc">Description:</label>
+              <input type="text" id="todoDesc" name="todo-title" required>
+            </div>
+            <div class="form-item">
+              <label for="taskDescription">Due date:</label>
+              <input type="date" id="todoDate" name="todo-date" required>
+            </div>
+            <div class="form-item" id="todoPriorityDropDown">
+              <label for="todoPriority" class="todo-priority-label">Priority:</label>
+                <select id="todoPriority" name="todo-priority">
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+             </div>
+           <div class="button-container">
+            <button type="submit" id="todoSubmitButton">Submit</button>
+            <button type="button" id="todoCloseButton">Close</button>
+           </div>
+          </form>
+        </div>
+      </dialog>
+      <div id="headerDiv">
+        <button id="addProject">Add Project</button>
+        <button id="addTodo">Add Task</button>
+        <button id="project0">0</button>
+        <button id="project1">1</button>
+      </div>
+      <div id="leftColumn"></div>
+      <div id="rightColumn"></div>
     </div>
-    <div id="leftColumn">
-    </div>
-    <div id="rightColumn"></div>
   </body>
 </html>
