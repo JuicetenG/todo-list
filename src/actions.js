@@ -12,6 +12,7 @@ const actions = (() => {
     projectIDs();
     dom.displayProjects();
     currentProject = projects[newProject.id];
+    dom.displayTodos();
   }
 
   function projectIDs() {

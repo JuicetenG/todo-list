@@ -10,6 +10,7 @@ actions.addTodo('walk', 'go for a walk', 'date', 'high');
 dom.displayTodos();
 actions.createProject('Justin');
 actions.createProject('three');
+actions.changeProject(0);
 
 dom.listen();
 
